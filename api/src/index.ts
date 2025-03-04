@@ -1,14 +1,10 @@
 import express from "express";
+import productsRouter from "./routes/products/index.js";
 
-const port = process.env.PORT;
 const app = express();
+const port = process.env.PORT;
 
-console.log(port);
-
-app.get("/", (req, res) => {
-  res.send("hello world 123");
-});
-
+app.use("/products", productsRouter);
 app.listen(port, () => {
   console.log("example listening to port " + port);
 });
